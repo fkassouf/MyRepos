@@ -13,7 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace TimesOfLebanonCMSNew
 {
-    /*startup*/
+    /*startup Times Of Lebanon CMS*/
     public class Startup
     {
         public Startup(IConfiguration configuration)
