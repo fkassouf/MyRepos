@@ -12536,11 +12536,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fouad.kassouf\\source\\repos\\TimesOfLebanonCMSNew\\TimesOfLebanonCMSNew\\TimesOfLebanonCMSNew.csproj",
+      "projectUniqueName": "C:\\Users\\fouad.kassouf\\source\\repos\\fkassouf\\MyRepos\\TimesOfLebanonCMSNew\\TimesOfLebanonCMSNew\\TimesOfLebanonCMSNew.csproj",
       "projectName": "TimesOfLebanonCMSNew",
-      "projectPath": "C:\\Users\\fouad.kassouf\\source\\repos\\TimesOfLebanonCMSNew\\TimesOfLebanonCMSNew\\TimesOfLebanonCMSNew.csproj",
+      "projectPath": "C:\\Users\\fouad.kassouf\\source\\repos\\fkassouf\\MyRepos\\TimesOfLebanonCMSNew\\TimesOfLebanonCMSNew\\TimesOfLebanonCMSNew.csproj",
       "packagesPath": "C:\\Users\\fouad.kassouf\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fouad.kassouf\\source\\repos\\TimesOfLebanonCMSNew\\TimesOfLebanonCMSNew\\obj\\",
+      "outputPath": "C:\\Users\\fouad.kassouf\\source\\repos\\fkassouf\\MyRepos\\TimesOfLebanonCMSNew\\TimesOfLebanonCMSNew\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
