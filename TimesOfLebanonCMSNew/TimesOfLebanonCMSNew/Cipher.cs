@@ -11,7 +11,7 @@ namespace TimesOfLebanonCMSNew
     public static class Cipher
     {
         /// <summary>
-        /// Encrypt a string.fffffkassouf
+        /// Encrypt a string
         /// </summary>
         /// <param name="plainText">String to be encrypted</param>
         /// <param name="password">Password</param>
