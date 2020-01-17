@@ -1,0 +1,12 @@
+﻿@font-face {
+    font-family: "Amiri-Bold";
+    src: url("amiri/Amiri-Bold.ttf");
+}
+
+#tblNews {
+    font-family: Amiri-Bold;
+}
+
+#frmNewsManagement {
+    font-family: Amiri-Bold;
+}

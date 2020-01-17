@@ -1,0 +1,152 @@
+﻿
+@{
+    ViewData["Title"] = "News Management";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/dist/css/main.css" rel="stylesheet" />
+<style>
+    label, input, h4 {
+        float:right;
+    }
+</style>
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">@ViewData["Title"]</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="~/home/index">Home</a></li>
+                    <li class="breadcrumb-item"><a href="~/home/news">News</a></li>
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<form id="frmNewsManagement" enctype="multipart/form-data">
+    <section class="content">
+        <div class="container-fluid" style="direction:rtl">
+            <div class="card card-default">
+                <div class="card-header">
+                    <h4>الخبر</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label>العنوان</label>
+                                <input type="text" class="form-control" id="txtTitle" name="txtTitle" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>الخانة</label>
+                                <select id="ddlCategory" name="ddlCategory" class="form-control select2"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>الحالة</label>
+                                <select id="ddlStatus" name="ddlStatus" class="form-control select2"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>نص الخبر</label>
+                                <textarea class="form-control" rows="10" id="txtSubject" name="txtSubject"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div class="card card-blue">
+
+                <div class="card-header">
+                    <h4>ملفات مرفقة</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="file" id="img1" accept="image/*" style="visibility:hidden;" value="img1" name="img1" onchange="showImage1(this)" />
+                                <input type="button" id="btnChooseImg" class="btn btn-info" onclick="document.getElementById('img1').click()" value="اختر صورة">
+                                <a style="display:none" id="btnRemoveImgPreview" onclick="removeImgPreview()" title="حذف الصورة"><i class="fas fa-trash">حذف الصورة</i></a>
+
+                                <img id="imgThumb1" src="" alt="الصورة" class="img img-bordered img-fluid" />
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="file" accept="video/mp4" id="fileUploadVideo" style="visibility:hidden;" name="fileUploadVideo" value="fileUploadVideo" onchange="showVideo(this)" />
+                                <input type="button" id="btnChooseVideo" class="btn btn-dark" onclick="document.getElementById('fileUploadVideo').click()" value="اختر فيديو">
+                                <a style="display:none" id="btnRemoveVideoPreview" onclick="removeVideoPreview()" title="حذف الفيديو"><i class="fas fa-trash">حذف الفيديو</i></a>
+                                <video controls class="img img-bordered video" style="height:80%; width:80%; display:none">
+                                    <source src="" id="vPreview" type="video/mp4">
+
+                                </video>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label id="lblModalNewsError"></label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <button class="btn btn-success btn-block" id="btnSaveNews">حفظ الخبر</button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <a href="~/home/news" class="btn btn-warning btn-block">رجوع الى اللائحة</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+
+@section Scripts {
+
+    <script>
+       
+        var mode = '';
+        var id = 0;
+        mode = '@Context.Request.Query["mode"]';
+        
+        if (mode == 'edit') {
+            id = @Context.Request.Query["id"];
+        }
+
+    </script>
+
+    <script src="~/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
+    
+    <script src="~/scripts/newsManagement.js"></script>
+
+}
+

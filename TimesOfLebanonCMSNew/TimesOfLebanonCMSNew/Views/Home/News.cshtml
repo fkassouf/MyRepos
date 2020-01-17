@@ -1,0 +1,199 @@
+﻿
+@{
+    ViewData["Title"] = "News";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<link href="~/dist/css/main.css" rel="stylesheet" />
+<link href="~/DataTables-1.10.18/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="~/DataTables-1.10.18/css/responsive.dataTables.min.css" rel="stylesheet" />
+<link href="~/DataTables-1.10.18/css/buttons.dataTables.min.css" rel="stylesheet" />
+<link href="~/DataTables-1.10.18/css/select.dataTables.min.css" rel="stylesheet" />
+<link href="~/viewerjs/viewer.min.css" rel="stylesheet" />
+
+<style>
+    .full_modal-dialog {
+        width: 98% !important;
+        /*height: 100% !important;*/
+        min-width: 98% !important;
+        /*min-height: 100% !important;*/
+        max-width: 98% !important;
+        /*max-height: 100% !important;*/
+        padding: 0 !important;
+    }
+    /*test git*/
+    .full_modal-content {
+        /*height: 99% !important;*/
+        /*min-height: 99% !important;
+        max-height: 99% !important;*/
+    }
+
+
+    video {
+        display: none;
+    }
+
+    div.dataTables_wrapper {
+        direction: rtl;
+    }
+</style>
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">@ViewData["Title"]</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="~/home/index">Home</a></li>
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 col-md-2">
+                <div class="form-group">
+                    <a id="btnSearch" class="btn btn-warning"><i class="fas fa-search"></i>Search</a>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-2">
+                <div class="form-group">
+                    <a id="btnAddNews" class="btn btn-primary" href="~/home/newsmanagement?mode=add&id=0"><i class="fas fa-plus"></i>Add News</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <table id="tblNews" width="100%" class="display">
+                    <thead>
+                        <tr>
+                            <th>العنوان</th>
+                            <th>النص</th>
+                            <th>الخانة</th>
+                            <th>التاريخ</th>
+                            <th>خبر سريع</th>
+                            <th>الحالة</th>
+                            <th>صورة</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <input id="hdnfrmNewsMode" type="hidden" />
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalNews" tabindex="-1" role="dialog" aria-labelledby="modalNews" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered full_modal-dialog" role="document">
+            <div class="modal-content full_modal-content">
+                <form id="frmNews">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalNewsHeader"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="card card-default">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label>Title</label>
+                                            <input type="text" class="form-control" id="txtTitle" name="txtTitle" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>Category</label>
+                                            <select id="ddlCategory" name="ddlCategory" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                            <select id="ddlStatus" name="ddlStatus" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label>Subject</label>
+                                            <textarea class="form-control" rows="10" id="txtSubject" name="txtSubject"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Video</label>
+                                            <input type="file" accept="video/mp4" id="fileUploadVideo" onchange="showVideo(this)" />
+                                            <video controls class="video" style="height:80%; width:80%">
+                                                <source src="" id="vPreview" type="video/mp4">
+
+                                            </video>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <input type="file" id="img1" onchange="showImage1(this)" />
+                                            <img id="imgThumb1" style="width:150px; height:150px" src="" alt="your image" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label id="lblModalNewsError"></label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button class="btn btn-success" id="btnSaveNews">Save</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</section>
+
+@section Scripts {
+    <script src="~/viewerjs/viewer.min.js"></script>
+    <script src="~/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
+    <script src="~/DataTables-1.10.18/js/dataTables.responsive.min.js"></script>
+    <script src="~/scripts/news.js"></script>
+
+}
