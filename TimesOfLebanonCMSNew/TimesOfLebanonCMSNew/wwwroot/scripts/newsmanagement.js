@@ -74,6 +74,7 @@ function getNews(id) {
             $("#ddlCategory").val(data.categoryId);
             $("#ddlStatus").val(data.statusId);
             $("#txtSubject").val(data.subject);
+            $("#chkBreaking").prop('checked', data.isBreaking);
             if (data.photo != null) {
                 hasPhoto = true;
                 $("#btnChooseImg").css("display", "none");
@@ -188,7 +189,7 @@ function resetForm() {
     $("#ddlCategory").val(0);
     $("#ddlStatus").val(0);
     $("#txtSubject").val('');
-
+    $("#chkBreaking").prop('checked', false);
     hasPhoto = false;
     $("#btnChooseImg").css("display", "block");
     $("#imgThumb1").prop("src", null);
@@ -455,7 +456,8 @@ function SaveNews() {
         nameFormDataHere.append("Subject", $("#txtSubject").val());
         nameFormDataHere.append("StatusId", $("#ddlStatus").val());
         nameFormDataHere.append("CategoryId", $("#ddlCategory").val());
-        
+        nameFormDataHere.append("IsBreaking", $("#chkBreaking").prop("checked"));
+        alert($("#chkBreaking").prop("checked"));
         $.ajax({
             url: '/home/SaveNews',
             type: 'POST',
