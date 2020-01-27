@@ -194,7 +194,7 @@ function resetForm() {
     $("#btnChooseImg").css("display", "block");
     $("#imgThumb1").prop("src", null);
     $("#btnRemoveImgPreview").css("display", "none");
-
+    $("#img1").val('');
     hasVideo = false;
     $("#btnChooseVideo").css("display", "block");
     $('#vPreview').prop("src", null);
@@ -418,7 +418,7 @@ function SaveNews() {
     }
 
     function manageImage(nameFormDataHere) {
-        
+        //alert($("#img1").prop("files") && $("#img1").prop("files")[0]);
         if ($("#img1").prop("files") && $("#img1").prop("files")[0]) {
             //nameFormDataHere.Photo = $("#img1").prop("files")[0];
             var file = $("#img1").prop("files")[0];
@@ -457,7 +457,7 @@ function SaveNews() {
         nameFormDataHere.append("StatusId", $("#ddlStatus").val());
         nameFormDataHere.append("CategoryId", $("#ddlCategory").val());
         nameFormDataHere.append("IsBreaking", $("#chkBreaking").prop("checked"));
-        alert($("#chkBreaking").prop("checked"));
+        
         $.ajax({
             url: '/home/SaveNews',
             type: 'POST',
