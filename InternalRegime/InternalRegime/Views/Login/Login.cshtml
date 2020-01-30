@@ -9,8 +9,35 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Login</title>
+
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+    <link href="~/styles/login.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>Login</h1>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+            <!-- Icon -->
+            <div class="fadeIn first">
+                @*<img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />*@
+                <img src="~/images/IT_LOGO.png" class="logo" id="icon" alt="اللجنة المركزية للمعلوماتية" />
+            </div>
+            <!-- Login Form -->
+            <form>
+                <input type="number" id="login" class="fadeIn second" name="login" placeholder="الرقم الحزبي">
+                @*<input type="password" id="password" class="fadeIn third" name="login" placeholder="password">*@
+                <input type="submit" class="fadeIn fourth" value="دخول">
+            </form>
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+                @*<a class="underlineHover" href="#">Forgot Password?</a>*@
+                <h4>جميع الحقوق محفوظة @DateTime.Now.Year</h4>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
 </body>
 </html>
