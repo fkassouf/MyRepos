@@ -10,8 +10,8 @@
     <meta name="viewport" content="width=device-width" />
     <title>Login</title>
 
-    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/login/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link href="~/styles/login.css" rel="stylesheet" />
 </head>
 <body>
@@ -21,23 +21,35 @@
             <!-- Icon -->
             <div class="fadeIn first">
                 @*<img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />*@
-                <img src="~/images/IT_LOGO.png" class="logo" id="icon" alt="اللجنة المركزية للمعلوماتية" />
+                <img src="~/images/logo/IT_LOGO.png" class="logo" id="icon" alt="اللجنة المركزية للمعلوماتية" />
             </div>
             <!-- Login Form -->
-            <form>
-                <input type="number" id="login" class="fadeIn second" name="login" placeholder="الرقم الحزبي">
+            <form action="~/login/VerifyMember" method="get">
+                <input type="number" id="memberId" class="fadeIn second" name="memberId" required placeholder="الرقم الحزبي">
                 @*<input type="password" id="password" class="fadeIn third" name="login" placeholder="password">*@
                 <input type="submit" class="fadeIn fourth" value="دخول">
             </form>
             <!-- Remind Passowrd -->
             <div id="formFooter">
                 @*<a class="underlineHover" href="#">Forgot Password?</a>*@
-                <h4>جميع الحقوق محفوظة @DateTime.Now.Year</h4>
+                @if (@TempData["verified"] != null)
+                {
+                    @if (@TempData["verified"].ToString() == "false")
+                    {
+                        <h4 class="alert alert-danger">رقم العضو غير صحيح</h4>
+                    }
+
+                }
             </div>
         </div>
     </div>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/login/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/login/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/login/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/login/vendor/bootstrap/js/bootstrap.min.js"></script>
+
 </body>
 </html>

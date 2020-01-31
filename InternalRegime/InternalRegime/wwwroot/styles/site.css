@@ -1,0 +1,9 @@
+﻿.card-title {
+    float: right;
+
+}
+
+
+[class*=icheck-] > label {
+    padding-left: 23px !important;
+}
