@@ -36,6 +36,24 @@ namespace InternalRegime.Controllers
                 return View(member);
             }
         }
+               
+        public IActionResult Results()
+        {
+            var member = HttpContext.Session.GetObjectFromJson<MemberModel>("Member");
+            if (member == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            else
+            {
+
+                return View(member);
+            }
+        }
+
+
+
+
 
         public IActionResult About()
         {
@@ -102,6 +120,35 @@ namespace InternalRegime.Controllers
                 AddException(ex, "GetVotings");
             }
             return Ok(list);
+        }
+
+
+
+        [HttpGet]
+        public IActionResult GetResultsDataSet()
+        {
+            var member = HttpContext.Session.GetObjectFromJson<MemberModel>("Member");
+            if (member == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            else
+            {
+                var list = new List<ResultDatasetModel>();
+                try
+                {
+                    using (TWHContext dbContext = new TWHContext())
+                    {
+                        list = dbContext.GetResultsDataSet(DateTime.Now.Year);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    AddException(ex, "GetResultsDataSet");
+                }
+                return Ok(list);
+            }
         }
 
 

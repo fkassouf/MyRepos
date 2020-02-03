@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "النتائج";
+    ViewData["PageIndex"] = "1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/styles/bootstrap.rtl.min.css" rel="stylesheet" />
+<link href="~/dist/css/main.css" rel="stylesheet" />
+<link href="~/styles/chartjs.css" rel="stylesheet" />
+<style>
+    label, input, h4 {
+        float: right;
+    }
+</style>
+<div class="content-header">
+    <div class="container-fluid" dir="rtl">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">@ViewData["Title"]</h1>
+            </div><!-- /.col -->
+
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<div class="container-fluid" dir="rtl">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+
+                <div class="chartWrapper">
+                           
+                                <canvas id="bar-canvas1"></canvas>
+                       
+                    </div>
+                </div>
+        </div>
+      
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+
+    <script>
+        var MemberId = '@Model.MemberID';
+    </script>
+
+    <script src="~/scripts/Chart.bundle.min.js"></script>
+    <script src="~/scripts/chartjs-plugin-labels.js"></script>
+    <script src="~/scripts/results.js"></script>
+
+}
+

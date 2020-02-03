@@ -234,14 +234,14 @@
                                 </li>
                             </ul>
                         </li>-->
-                         <li class="nav-item" id="liHome">
+                         <li class="nav-item" id="liVoting">
                             <a href="~/home/index" class="nav-link active">
                                 <i class="nav-icon fas fa-vote-yea"></i>
                                 <p>التصويت</p>
                             </a>
                         </li>
-                        <li class="nav-item" id="liDashboard">
-                            <a href="~/home/index" class="nav-link">
+                        <li class="nav-item" id="liResults">
+                            <a href="~/home/results" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>النتائج</p>
                             </a>
@@ -799,6 +799,8 @@
     <!-- jQuery -->
     <script>
         var ViewData = '@ViewData["Title"]';
+
+        var PageIndex = '@ViewData["PageIndex"]';
 
         var fullName = '@Model.FullName';
     </script>

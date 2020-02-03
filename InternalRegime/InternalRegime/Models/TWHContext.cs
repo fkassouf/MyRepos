@@ -111,6 +111,37 @@ namespace InternalRegime.Models
         }
 
 
+        public List<ResultDatasetModel> GetResultsDataSet(int Year)
+        {
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "InternalRegime_GetResultsDataSet";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@Year", Year);
+            string res = string.Empty;
+            try
+            {
+                if (cmd.Connection.State != ConnectionState.Open)
+                {
+                    cmd.Connection.Open();
+                }
+                var reader = cmd.ExecuteReader();
+                var TBLList = Utilities.GetProcedureToList<ResultDatasetModel>(reader);
+                reader.Close();
+                conn.Close();
+
+                return TBLList;
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+        }
+
+
         public List<VotingModel> GetVotings(Int64 MemberId)
         {
             cmd.CommandType = CommandType.StoredProcedure;

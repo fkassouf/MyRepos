@@ -7,3 +7,25 @@
 $(document).ajaxStop(function () {
     $.LoadingOverlay("hide");
 });
+
+
+
+$(function () {
+  
+    switch (PageIndex) {
+
+        case '0':
+            $('#liVoting a').addClass('active');
+            $('#liResults a').removeClass('active');
+
+            break;
+        case '1':
+            $('#liVoting a').removeClass('active');
+            $('#liResults a').addClass('active');
+
+            break;
+    }
+
+            
+        
+    });

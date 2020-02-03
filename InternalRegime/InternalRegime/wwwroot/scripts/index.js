@@ -79,17 +79,19 @@ function loadItems() {
                         
                         
                         
-                        if (i % 4 === 0) {
+                        if (i % 3 === 0) {
                             html += '<div class="row">';
                         }
 
-                        html += '<section class="col-lg-3">';
+                        html += '<section class="col-lg-12">';
+                        html += '<div class="form-group">';
                         html += '<div class="card card-default">';
 
                         html += '<div class="card-header">';
                         html += '<div class="card-title">';
+                        html += '<h6 class="text text-default">' + item.title + '</h6>';
                         html += '<h5 class="text text-primary">البند الاساسي</h5>';
-                        html += item.primaryItem;
+                        html += '<div>' + item.primaryItem + '</div>';
                         html += '</div>';
                         html += '</div>';
                         html += '<div class="card-body">';
@@ -129,9 +131,10 @@ function loadItems() {
                         /*uncheck*/
                         html += '</div>';
                         html += '</div>';
+                        html += '</div>';
                         html += '</section>';
 
-                        if ((i + 1) % 4 === 0) {
+                        if ((i + 1) % 3 === 0) {
                             html += '</div>';
                         }
                     });

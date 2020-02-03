@@ -9,6 +9,8 @@ namespace InternalRegime.Models
     {
         public Int32 ID { get; set; }
 
+        public string Title { get; set; }
+
         public string PrimaryItem { get; set; }
 
         public string ModifiedItem { get; set; }
