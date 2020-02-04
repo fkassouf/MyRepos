@@ -38,7 +38,7 @@ function successResultDataCallBack(returnData) {
 
 
     let ch = new Chart(document.getElementById('bar-canvas1'), {
-        type: 'bar',
+        type: 'horizontalBar',
         data: {
             labels: arrLabels,
             datasets: [
@@ -55,13 +55,42 @@ function successResultDataCallBack(returnData) {
             ]
         },
         options: {
-            defaultFontSize : 18,
+            defaultFontSize: 20,
+            defaultFontColor: '#000000',
             legend: {
-                display: true,
-                labels: {
-                    fontSize : 18
-                },
-                scales: { scaleLabel: { fontSize: 18 } }
+                display: false
+               
+            },
+            legendCallback: function (chart) {
+                var text = [];
+                text.push('<ul class="list-inline">');
+                text.push('<li><div class="legendValue"><span style="background-color:#a5cae8b0">&nbsp;&nbsp;&nbsp;&nbsp;</span>');
+                text.push('<span class="label" style="margin-right: 5px; margin-left: 20px;">موافق</span>');
+               
+                text.push('<span style="background-color:#bfb391b0">&nbsp;&nbsp;&nbsp;&nbsp;</span>');
+                text.push('<span class="label" style="margin-right: 5px; margin-left: 20px;">غير موافق</span>');
+               
+                text.push('<span style="background-color:#007bff">&nbsp;&nbsp;&nbsp;&nbsp;</span>');
+                text.push('<span class="label" style="margin-right: 5px; margin-left: 20px;">صدق عليه</span>');
+               
+                
+
+                text.push('</div></li>');
+
+                
+                text.push('</ul>');
+                
+                return text.join('');
+                
+            },
+            animation: {
+                onComplete: function () {
+                   
+                    var chartInstance = this.chart;
+                    var ctx = chartInstance.ctx;
+                    ctx.textAlign = "right";
+                    ctx.fillStyle = "#fff";
+                }
             },
             responsive: true,
             maintainAspectRatio: false,
@@ -73,17 +102,28 @@ function successResultDataCallBack(returnData) {
             scales: {
                 yAxes: [{
                     ticks: {
-                        fontSize: 18
+                        fontSize: 20
+                       
+                        
+                        
+                       
                     }
                 }],
                 xAxes: [{
                     ticks: {
-                        fontSize: 18
+                       
+                        fontSize: 20
+                        
+                        
+                        
                     }
                 }]
             }
         }
     });
+
+
+    $('#legend').prepend(ch.generateLegend());
 }
 
 
@@ -92,7 +132,7 @@ $(function () {
     
     getResultData();
    
-    setInterval('getResultData()', 10000);
+    setInterval('getResultData()', 100000);
     
 });
 

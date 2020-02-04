@@ -23,5 +23,9 @@ namespace InternalRegime.Models
 
         public string Description { get; set; }
 
+        public bool? Locked { get; set; }
+
+        public bool? IsAdmin { get; set; }
+
     }
 }

@@ -99,7 +99,11 @@ function loadItems() {
                         html += item.modifiedItem;
                         html += '</div>';
                         html += '<div class="card-footer">';
+
+                        html += '<div class="row">';
+                        
                         /*check*/
+                        html += '<div class="col-xs-12 col-sm-6 col-md-2">';
                         html += '<div class="form-group clearfix">';
                         html += 'موافق';
                         html += '<div class="icheck-success d-inline">';
@@ -112,9 +116,11 @@ function loadItems() {
                         html += '<label for="checkboxAgree-' + item.id + '"></label>';
                         html += '</div>';
                         html += '</div>';
+                        html += '</div>';
                         /*check*/
 
                         /*uncheck*/
+                        html += '<div class="col-xs-12 col-sm-6 col-md-2">';
                         html += '<div class="form-group clearfix">';
                         html += 'غير موافق';
                         html += '<div class="icheck-danger d-inline">';
@@ -128,7 +134,12 @@ function loadItems() {
                         html += '<label for="checkboxDisagree-' + item.id + '"></label>';
                         html += '</div>';
                         html += '</div>';
+                        html += '</div>';
                         /*uncheck*/
+
+                        html += '</div>';
+                        
+
                         html += '</div>';
                         html += '</div>';
                         html += '</div>';

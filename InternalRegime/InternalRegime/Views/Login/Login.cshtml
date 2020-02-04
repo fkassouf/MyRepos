@@ -32,6 +32,16 @@
             <!-- Remind Passowrd -->
             <div id="formFooter">
                 @*<a class="underlineHover" href="#">Forgot Password?</a>*@
+
+                @if (@TempData["locked"] != null)
+                {
+                    @if (@TempData["locked"].ToString() == "true")
+                    {
+                        <h4 class="alert alert-danger">Locked</h4>
+                    }
+
+                }
+
                 @if (@TempData["verified"] != null)
                 {
                     @if (@TempData["verified"].ToString() == "false")

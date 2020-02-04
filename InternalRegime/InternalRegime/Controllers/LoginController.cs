@@ -41,14 +41,36 @@ namespace InternalRegime.Controllers
 
                 if (member != null)
                 {
-                    HttpContext.Session.SetObjectAsJson("Member", member);
-                    TempData["verified"] = "true";
-                    return RedirectToAction("Index", "Home");
+                    if (member.Locked.HasValue)
+                    {
+                        if (member.Locked.Value)
+                        {
+                            TempData["locked"] = "true";
+                            
+                            return RedirectToAction("Login", "Login");
+                        }
+                        else
+                        {
+                            HttpContext.Session.SetObjectAsJson("Member", member);
+                            TempData["verified"] = "true";
+                            return RedirectToAction("Index", "Home");
+                        }
+
+
+                    }
+                    else
+                    {
+                        TempData["locked"] = "true";
+                        
+                        return RedirectToAction("Login", "Login");
+                    }
+
+                    
                 }
             }
             catch (Exception ex)
             {
-                AddException(ex, "VerifyLogin");
+                throw ex;
             }
 
             TempData["verified"] = "false";

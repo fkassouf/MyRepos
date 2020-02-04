@@ -35,7 +35,7 @@
     }
 
     var SUPPORTED_TYPES = {};
-    ['pie', 'doughnut', 'polarArea', 'bar'].forEach(function (t) {
+    ['pie', 'doughnut', 'polarArea', 'bar', 'horizontalBar'].forEach(function (t) {
         SUPPORTED_TYPES[t] = true;
     });
 

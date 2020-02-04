@@ -16,5 +16,11 @@ namespace InternalRegime.Models
         public Int32 AgreeVotes { get; set; }
         public Int32 DisagreeVotes { get; set; }
 
+        public Int32 Total { get; set; }
+
+        public decimal Perc { get; set; }
+
+        public bool Passed { get; set; }
+
     }
 }
