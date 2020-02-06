@@ -122,7 +122,7 @@ function successResultDataCallBack(returnData) {
         }
     });
 
-
+    $('#legend').html('');
     $('#legend').prepend(ch.generateLegend());
 }
 
@@ -131,7 +131,7 @@ $(function () {
 
     
     getResultData();
-   
+    
     setInterval('getResultData()', 100000);
     
 });
