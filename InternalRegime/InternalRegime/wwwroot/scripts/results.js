@@ -64,10 +64,10 @@ function successResultDataCallBack(returnData) {
             legendCallback: function (chart) {
                 var text = [];
                 text.push('<ul class="list-inline">');
-                text.push('<li><div class="legendValue"><span style="background-color:#a5cae8b0">&nbsp;&nbsp;&nbsp;&nbsp;</span>');
+                text.push('<li><div class="legendValue"><span style="background-color:#add3e0">&nbsp;&nbsp;&nbsp;&nbsp;</span>');
                 text.push('<span class="label" style="margin-right: 5px; margin-left: 20px;">موافق</span>');
                
-                text.push('<span style="background-color:#bfb391b0">&nbsp;&nbsp;&nbsp;&nbsp;</span>');
+                text.push('<span style="background-color:#d6c8b6">&nbsp;&nbsp;&nbsp;&nbsp;</span>');
                 text.push('<span class="label" style="margin-right: 5px; margin-left: 20px;">غير موافق</span>');
                
                 text.push('<span style="background-color:#007bff">&nbsp;&nbsp;&nbsp;&nbsp;</span>');
