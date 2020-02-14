@@ -43,13 +43,13 @@ namespace InternalRegime.Models
 
 
 
-        public MemberModel VerifyMember(Int64 MemberId)
+        public MemberModel VerifyMember(Int64 MemberId, Int32 Pin)
         {
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "InternalRegime_VerifyMember";
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@MemberId", MemberId);
-
+            cmd.Parameters.AddWithValue("@Pin", Pin);
             string res = string.Empty;
             try
             {

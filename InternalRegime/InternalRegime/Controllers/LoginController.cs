@@ -28,6 +28,7 @@ namespace InternalRegime.Controllers
         public IActionResult VerifyMember(MemberModel Member)
         {
             var memberId = Request.Query["memberId"];
+            var pin = Request.Query["password"];
 
             MemberModel member = null;
 
@@ -35,7 +36,7 @@ namespace InternalRegime.Controllers
             {
                 using (TWHContext dbContext = new TWHContext())
                 {
-                    member = dbContext.VerifyMember(Convert.ToInt64(memberId));
+                    member = dbContext.VerifyMember(Convert.ToInt64(memberId), Convert.ToInt32(pin));
                 }
 
 

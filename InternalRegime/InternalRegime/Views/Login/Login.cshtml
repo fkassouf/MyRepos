@@ -26,7 +26,7 @@
             <!-- Login Form -->
             <form action="~/login/VerifyMember" method="get">
                 <input type="number" id="memberId" class="fadeIn second" name="memberId" required placeholder="الرقم الحزبي">
-                @*<input type="password" id="password" class="fadeIn third" name="login" placeholder="password">*@
+                <input type="password" id="password" name="password" class="fadeIn third" required placeholder="PIN CODE" maxlength="4">
                 <input type="submit" class="fadeIn fourth" value="دخول">
             </form>
             <!-- Remind Passowrd -->
@@ -46,7 +46,7 @@
                 {
                     @if (@TempData["verified"].ToString() == "false")
                     {
-                        <h4 class="alert alert-danger">رقم العضو غير صحيح</h4>
+                        <h4 class="alert alert-danger">الرقم الحزبي او الرقم السري غير صحيح </h4>
                     }
 
                 }
@@ -60,6 +60,27 @@
     <!--===============================================================================================-->
     <script src="~/login/vendor/bootstrap/js/popper.js"></script>
     <script src="~/login/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script>
+        $(function () {
+            $('#txtpassword').keydown(function (e) {
+                var key = e.charCode || e.keyCode || 0;
+                // allow backspace, tab, delete, enter, arrows, numbers and keypad numbers ONLY
+                // home, end, period, and numpad decimal
+                return (
+                    key == 8 ||
+                    key == 9 ||
+                    key == 13 ||
+                    key == 46 ||
+                    key == 110 ||
+                    key == 190 ||
+                    (key >= 35 && key <= 40) ||
+                    (key >= 48 && key <= 57) ||
+                    (key >= 96 && key <= 105));
+            });
+        });
+        
+    </script>
 
 </body>
 </html>

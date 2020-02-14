@@ -31,5 +31,7 @@ namespace InternalRegime.Models
 
         public bool? Disagree { get; set; }
 
+        public Int32 Pin { get; set; }
+
     }
 }
