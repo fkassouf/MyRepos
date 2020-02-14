@@ -18,10 +18,19 @@
 <div class="content-header">
     <div class="container-fluid" dir="rtl">
         <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0 text-dark"><i class="nav-icon fas fa-vote-yea"></i> @ViewData["Title"]</h1>
+            @*<div class="col">
+                <h3 class="m-0 text-dark"><i class="nav-icon fas fa-vote-yea"></i> @ViewData["Title"]</h3>
+            </div>*@
+            <div class="col">
+                <h6 class="text-dark"><strong>@Model.FullName</strong></h6>
             </div><!-- /.col -->
-            
+            <div class="col">
+                <h6 class="text-dark"><strong>@Model.Description</strong></h6>
+            </div><!-- /.col -->
+            <div class="col">
+                <h6 class="text-dark"><strong>الوزن : @Model.VoteWeight</strong></h6>
+            </div><!-- /.col -->
+
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
 </div>
@@ -38,6 +47,7 @@
 
     <script>
         var MemberId = '@Model.MemberID';
+        
     </script>
 
     <script src="~/scripts/index.js"></script>

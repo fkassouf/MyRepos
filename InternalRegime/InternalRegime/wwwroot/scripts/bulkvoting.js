@@ -17,7 +17,7 @@ $(function () {
 
 function getItems() {
     $.ajax({
-        url: '/home/GetItemList',
+        url:'/home/GetItemList',
         type: 'GET',
         processData: false,
         contentType: false,

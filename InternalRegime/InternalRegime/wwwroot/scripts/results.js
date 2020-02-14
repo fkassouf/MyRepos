@@ -31,7 +31,7 @@ function successResultDataCallBack(returnData) {
 
     if (main.length > 0) {
         total = main[0].total;
-        $('#lblTotalVotes').text('النصاب : ' + main[0].total);
+        $('#lblTotalVotes').text('عدد الاعضاء : ' + main[0].total);
     }
     
     $.each(main, function (i, item) {
@@ -172,7 +172,7 @@ $(function () {
     
     getResultData();
     
-    setInterval('getResultData()', 100000);
+    setInterval('getResultData()', 10000);
     
 });
 

@@ -19,7 +19,7 @@ namespace InternalRegime.Controllers
         {
             hostingEnvironment = environment;
             _baseURL = ConfigurationManager.AppSetting["BaseURL"];
-
+            ViewData["BaseURL"] = _baseURL;
 
         }
 
