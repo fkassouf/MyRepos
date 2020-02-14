@@ -90,7 +90,7 @@ function getItemDetails(id) {
             else {
                 showDetails(true);
                 $('#divOriginalItem').html(data.primaryItem);
-                $('#divModifiedItem').html(data.modifiedItem);
+                //$('#divModifiedItem').html(data.modifiedItem);
 
                 /**All Voted */
                 var html = '';

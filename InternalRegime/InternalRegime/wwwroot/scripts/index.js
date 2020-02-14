@@ -94,11 +94,11 @@ function loadItems() {
                         html += '</div>';
                         html += '</div>';
                         html += '<div class="card-body collapse" id="cardBody' + item.id +'">';
-                        html += '<h5 class="text text-primary">البند الاساسي</h5>';
+                        //html += '<h5 class="text text-primary">البند الاساسي</h5>';
                         html += '<div>' + item.primaryItem + '</div>';
-                        html += '<hr>';
-                        html += '<h5 class="text text-warning">التعديل المقترح</h5>';
-                        html += item.modifiedItem;
+                        //html += '<hr>';
+                        //html += '<h5 class="text text-warning">التعديل المقترح</h5>';
+                        //html += item.modifiedItem;
                         html += '</div>';
                         html += '<div class="card-footer">';
 
