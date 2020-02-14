@@ -27,5 +27,9 @@ namespace InternalRegime.Models
 
         public bool? IsAdmin { get; set; }
 
+        public bool? Agree { get; set; }
+
+        public bool? Disagree { get; set; }
+
     }
 }

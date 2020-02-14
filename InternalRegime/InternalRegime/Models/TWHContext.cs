@@ -111,6 +111,104 @@ namespace InternalRegime.Models
         }
 
 
+        public List<UnitModel> GetUnits()
+        {
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "InternalRegime_GetUnits";
+            cmd.Parameters.Clear();
+            
+            string res = string.Empty;
+            try
+            {
+                if (cmd.Connection.State != ConnectionState.Open)
+                {
+                    cmd.Connection.Open();
+                }
+                var reader = cmd.ExecuteReader();
+                var TBLList = Utilities.GetProcedureToList<UnitModel>(reader);
+                reader.Close();
+                conn.Close();
+
+                return TBLList;
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+        }
+
+
+        public List<MemberModel> GetMembersByUnit(Int64 UnitId, Int32 ItemId)
+        {
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "InternalRegime_GetMembersByUnit";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@UnitId", UnitId);
+            cmd.Parameters.AddWithValue("@ItemId", ItemId);
+            string res = string.Empty;
+            try
+            {
+                if (cmd.Connection.State != ConnectionState.Open)
+                {
+                    cmd.Connection.Open();
+                }
+                var reader = cmd.ExecuteReader();
+                var TBLList = Utilities.GetProcedureToList<MemberModel>(reader);
+                reader.Close();
+                conn.Close();
+
+                return TBLList;
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+        }
+
+
+
+
+        public ItemModel GetItemById(Int32 id)
+        {
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "InternalRegime_GetItemById";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@ItemId", id);
+            string res = string.Empty;
+            try
+            {
+                if (cmd.Connection.State != ConnectionState.Open)
+                {
+                    cmd.Connection.Open();
+                }
+                var reader = cmd.ExecuteReader();
+                var TBLList = Utilities.GetProcedureToList<ItemModel>(reader);
+                reader.Close();
+                conn.Close();
+                if (TBLList.Count > 0)
+                    return TBLList[0];
+                else
+                    return null;
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+        }
+
+
         public List<ResultDatasetModel> GetResultsDataSet(int Year)
         {
             cmd.CommandType = CommandType.StoredProcedure;
@@ -219,6 +317,82 @@ namespace InternalRegime.Models
                 }
                 cmd.ExecuteNonQuery();
                 
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+        public void InternalRegimeBulkVote(VotingModel Voting, Int32 MemberSessionId)
+        {
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "InternalRegime_BulkVote";
+            cmd.Parameters.Clear();
+            cmd.Parameters.Add("@Year", SqlDbType.Int).Value = Voting.VotingTime.Value.Year;
+            cmd.Parameters.Add("@MemberSessionId", SqlDbType.Int).Value = MemberSessionId;
+            cmd.Parameters.Add("@ItemId", SqlDbType.Int).Value = Voting.ItemId;
+            cmd.Parameters.Add("@Agree", SqlDbType.Bit).Value = Voting.Voted;
+
+            try
+            {
+                if (cmd.Connection.State != ConnectionState.Open)
+                {
+                    cmd.Connection.Open();
+                }
+                cmd.ExecuteNonQuery();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public void ClearVoteAll(VotingModel Voting)
+        {
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "InternalRegime_ClearVoteAll";
+            cmd.Parameters.Clear();
+            cmd.Parameters.Add("@Year", SqlDbType.Int).Value = Voting.VotingTime.Value.Year;
+            cmd.Parameters.Add("@ItemId", SqlDbType.Int).Value = Voting.ItemId;
+            try
+            {
+                if (cmd.Connection.State != ConnectionState.Open)
+                {
+                    cmd.Connection.Open();
+                }
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void InternalRegimeVoteAll(VotingModel Voting)
+        {
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "InternalRegime_VoteAll";
+            cmd.Parameters.Clear();
+            cmd.Parameters.Add("@Year", SqlDbType.Int).Value = Voting.VotingTime.Value.Year;
+            cmd.Parameters.Add("@ItemId", SqlDbType.Int).Value = Voting.ItemId;
+            cmd.Parameters.Add("@Agree", SqlDbType.Bit).Value = Voting.Voted;
+
+            try
+            {
+                if (cmd.Connection.State != ConnectionState.Open)
+                {
+                    cmd.Connection.Open();
+                }
+                cmd.ExecuteNonQuery();
+
 
             }
             catch (Exception ex)

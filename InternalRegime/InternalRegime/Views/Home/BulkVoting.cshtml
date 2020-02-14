@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewData["Title"] = "التصويت بالجملة";
+    ViewData["PageIndex"] = "1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/styles/bootstrap.rtl.min.css" rel="stylesheet" />
+<link href="~/DataTables-1.10.18/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="~/DataTables-1.10.18/css/responsive.dataTables.min.css" rel="stylesheet" />
+<link href="~/dist/css/main.css" rel="stylesheet" />
+<link href="~/styles/chartjs.css" rel="stylesheet" />
+<style>
+    label, input, h4 {
+        float: right;
+    }
+
+    .main-footer {
+        font-size: 10px;
+    }
+</style>
+<div class="content-header">
+    <div class="container-fluid" dir="rtl">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark"><i class="nav-icon fas fa-users"></i> @ViewData["Title"]</h1>
+            </div><!-- /.col -->
+
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+
+<div class="container-fluid" dir="rtl">
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="form-group">
+                <div class="card card-default">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <label>البند</label>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <select id="ddlItem" class="form-control"></select>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9">
+            <div class="form-group">
+                <div class="card card-default" id="cardDetails" style="display:none">
+                    <div class="card-header">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="card-title">
+                                            <label>تفاصيل البند</label>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-8">
+                                   
+                                       <div class="row" id="divAllVoted">
+
+                                       </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <h5 class="text text-primary">البند الاساسي</h5>
+                        <div id="divOriginalItem"></div>
+                        <h5 class="text text-warning">التعديل المقترح</h5>
+                        <div id="divModifiedItem"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="form-group">
+
+                <div class="card card-info">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <label>المجلس</label>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <select id="ddlCouncil" class="form-control"></select>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9">
+            <div class="form-group">
+                <div class="card card-info" id="cardMembers" style="display:none">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <label>تصويت الأعضاء</label>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table id="tblMembers" width="100%" class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <label>العضو</label>
+                                    </th>
+                                    <th>
+                                        <label>موافق</label>
+                                    </th>
+                                    <th>
+                                        <label>غير موافق</label>
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+
+    <script>
+        var MemberId = '@Model.MemberID';
+    </script>
+    <script src="~/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
+    <script src="~/DataTables-1.10.18/js/dataTables.responsive.min.js"></script>
+    <script src="~/scripts/bulkvoting.js"></script>
+
+}

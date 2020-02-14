@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewData["Title"] = "النتائج";
-    ViewData["PageIndex"] = "1";
+    ViewData["PageIndex"] = "2";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link href="~/styles/bootstrap.rtl.min.css" rel="stylesheet" />
@@ -15,10 +15,12 @@
 <div class="content-header">
     <div class="container-fluid" dir="rtl">
         <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0 text-dark">@ViewData["Title"]</h1>
+            <div class="col-md-3">
+                <h1 class="m-0 text-dark"><i class="nav-icon fas fa-tachometer-alt"></i> @ViewData["Title"]</h1>
             </div><!-- /.col -->
-
+            <div class="col-md-9">
+                <h1 class="m-0 text-dark"> <label id="lblTotalVotes"></label></h1>
+</div>
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
 </div>

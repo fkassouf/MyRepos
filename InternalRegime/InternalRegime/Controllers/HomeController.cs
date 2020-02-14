@@ -51,7 +51,19 @@ namespace InternalRegime.Controllers
             }
         }
 
+        public IActionResult BulkVoting()
+        {
+            var member = HttpContext.Session.GetObjectFromJson<MemberModel>("Member");
+            if (member == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            else
+            {
 
+                return View(member);
+            }
+        }
 
 
 
@@ -104,6 +116,46 @@ namespace InternalRegime.Controllers
 
 
         [HttpPost]
+        public IActionResult GetUnits(UnitModel unit)
+        {
+            var list = new List<UnitModel>();
+            try
+            {
+                using (TWHContext dbContext = new TWHContext())
+                {
+                    list = dbContext.GetUnits();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                AddException(ex, "GetUnits");
+            }
+            return Ok(list);
+        }
+
+
+        [HttpPost]
+        public IActionResult GetItemById(ItemModel item)
+        {
+            
+            try
+            {
+                using (TWHContext dbContext = new TWHContext())
+                {
+                    item = dbContext.GetItemById(item.ID);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                AddException(ex, "GetItemById");
+            }
+            return Ok(item);
+        }
+
+
+        [HttpPost]
         public IActionResult GetVotings(MemberModel Member)
         {
             var list = new List<VotingModel>();
@@ -118,6 +170,27 @@ namespace InternalRegime.Controllers
             catch (Exception ex)
             {
                 AddException(ex, "GetVotings");
+            }
+            return Ok(list);
+        }
+
+
+
+        [HttpPost]
+        public IActionResult GetMembersByUnit(UnitModel unit)
+        {
+            var list = new List<MemberModel>();
+            try
+            {
+                using (TWHContext dbContext = new TWHContext())
+                {
+                    list = dbContext.GetMembersByUnit(unit.UnitId, unit.ItemId);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                AddException(ex, "GetMembersByUnit");
             }
             return Ok(list);
         }
@@ -175,6 +248,93 @@ namespace InternalRegime.Controllers
                 catch (Exception ex)
                 {
                     AddException(ex, "Vote");
+                }
+                return Ok();
+            }
+        }
+
+
+        [HttpPost]
+        public IActionResult ClearVoteAll(VotingModel voting)
+        {
+
+            voting.VotingTime = DateTime.Now;
+            var member = HttpContext.Session.GetObjectFromJson<MemberModel>("Member");
+            if (member == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            else
+            {
+                try
+                {
+                    using (TWHContext dbContext = new TWHContext())
+                    {
+                        dbContext.ClearVoteAll(voting);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    AddException(ex, "ClearVoteAll");
+                }
+                return Ok();
+            }
+        }
+
+
+        [HttpPost]
+        public IActionResult BulkVote(VotingModel voting)
+        {
+
+            voting.VotingTime = DateTime.Now;
+            var member = HttpContext.Session.GetObjectFromJson<MemberModel>("Member");
+            if (member == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            else
+            {
+                try
+                {
+                    using (TWHContext dbContext = new TWHContext())
+                    {
+                        dbContext.InternalRegimeBulkVote(voting, voting.MemberSessionId);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    AddException(ex, "BulkVote");
+                }
+                return Ok();
+            }
+        }
+
+
+        [HttpPost]
+        public IActionResult VoteAll(VotingModel voting)
+        {
+
+            voting.VotingTime = DateTime.Now;
+            var member = HttpContext.Session.GetObjectFromJson<MemberModel>("Member");
+            if (member == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            else
+            {
+                try
+                {
+                    using (TWHContext dbContext = new TWHContext())
+                    {
+                        dbContext.InternalRegimeVoteAll(voting);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    AddException(ex, "VoteAll");
                 }
                 return Ok();
             }

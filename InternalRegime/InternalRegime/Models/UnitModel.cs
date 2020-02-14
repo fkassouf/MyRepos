@@ -5,14 +5,11 @@ using System.Threading.Tasks;
 
 namespace InternalRegime.Models
 {
-    public class VotingModel
+    public class UnitModel
     {
+        public Int64 UnitId { get; set; }
+        public Int32 UnitTypeId { get; set; }
         public Int32 ItemId { get; set; }
-
-        public bool? Voted { get; set; }
-
-        public DateTime? VotingTime { get; set; }
-
-        public Int32 MemberSessionId { get; set; }
+        public string Name { get; set; }
     }
 }

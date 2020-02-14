@@ -41,7 +41,7 @@ function loadItems() {
 
             arrVotings = data;
 
-
+            //console.log(arrVotings);
 
             $.ajax({
                 url: '/home/GetItemList',
@@ -89,12 +89,14 @@ function loadItems() {
 
                         html += '<div class="card-header">';
                         html += '<div class="card-title">';
-                        html += '<h6 class="text text-default">' + item.title + '</h6>';
+                        html += '<h5 class="text text-default">' + item.title + ' <a class="btn btn-info" onclick="readMoreLess(this, '+item.id+')" data-toggle="collapse" data-target="#cardBody' + item.id +'" id="myBtn'+item.id+'">Read More</a></h5>';
+                        
+                        html += '</div>';
+                        html += '</div>';
+                        html += '<div class="card-body collapse" id="cardBody' + item.id +'">';
                         html += '<h5 class="text text-primary">البند الاساسي</h5>';
                         html += '<div>' + item.primaryItem + '</div>';
-                        html += '</div>';
-                        html += '</div>';
-                        html += '<div class="card-body">';
+                        html += '<hr>';
                         html += '<h5 class="text text-warning">التعديل المقترح</h5>';
                         html += item.modifiedItem;
                         html += '</div>';
@@ -103,7 +105,7 @@ function loadItems() {
                         html += '<div class="row">';
                         
                         /*check*/
-                        html += '<div class="col-xs-12 col-sm-6 col-md-2">';
+                        html += '<div class="col">';
                         html += '<div class="form-group clearfix">';
                         html += 'موافق';
                         html += '<div class="icheck-success d-inline">';
@@ -120,7 +122,7 @@ function loadItems() {
                         /*check*/
 
                         /*uncheck*/
-                        html += '<div class="col-xs-12 col-sm-6 col-md-2">';
+                        html += '<div class="col">';
                         html += '<div class="form-group clearfix">';
                         html += 'غير موافق';
                         html += '<div class="icheck-danger d-inline">';
@@ -173,4 +175,17 @@ function loadItems() {
 
     
 
+}
+
+
+
+function readMoreLess(sender, id) {
+    var $card = $('#cardBody' + id);
+    if ($card.hasClass('show'))
+    {
+        $(sender).html('Read More');
+    }
+    else {
+        $(sender).html('Read Less');
+    }
 }

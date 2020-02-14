@@ -17,5 +17,9 @@ namespace InternalRegime.Models
 
         public bool? Active { get; set; }
 
+        public bool? AllVotedYes { get; set; }
+
+        public bool? AllVotedNo { get; set; }
+
     }
 }
