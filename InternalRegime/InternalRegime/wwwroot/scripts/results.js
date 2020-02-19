@@ -1,5 +1,5 @@
 ﻿var total = 0;
-
+var totalVoters = 0;
 function getResultData() {
     $.ajax({
         url: '/home/GetResultsDataSet',
@@ -31,12 +31,15 @@ function successResultDataCallBack(returnData) {
 
     if (main.length > 0) {
         total = main[0].total;
-        $('#lblTotalVotes').text('عدد الاعضاء : ' + main[0].total);
+        totalVoters = main[0].totalVoters;
+        $('#lblTotalVotes').text('مجموع الاصوات : ' + main[0].total);
+
+        $('#lblTotalVoters').text('الحاضرون : ' + main[0].totalVoters);
     }
     
     $.each(main, function (i, item) {
         
-        arrLabels.push(item.title);
+        arrLabels.push(item.title + '  % ' + item.perc);
         arrAgree.push(item.agreeVotes);
         arrDisagree.push(item.disagreeVotes);
         arrAgreeColors.push(item.agreeColor);
@@ -140,9 +143,9 @@ function successResultDataCallBack(returnData) {
             scales: {
                 yAxes: [{
                     ticks: {
-                        fontSize: 20,
+                        fontSize: 18,
                         beginAtZero: false,
-                        stepSize: 100,
+                        stepSize: 50,
                         max: total
                         
                         
@@ -151,8 +154,11 @@ function successResultDataCallBack(returnData) {
                 xAxes: [{
                     ticks: {
                         beginAtZero: false,
-                        fontSize: 20
-                        
+                        fontSize: 20,
+                        autoSkip: false,
+                        maxRotation: 90,
+                        minRotation: 45
+                       
                         
                         
                         

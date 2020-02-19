@@ -15,12 +15,25 @@
 <div class="content-header">
     <div class="container-fluid" dir="rtl">
         <div class="row mb-2">
-            <div class="col-md-3">
-                <h1 class="m-0 text-dark"><i class="nav-icon fas fa-tachometer-alt"></i> @ViewData["Title"]</h1>
-            </div><!-- /.col -->
-            <div class="col-md-9">
-                <h1 class="m-0 text-dark"> <label id="lblTotalVotes"></label></h1>
-</div>
+            <div class="col">
+            <h1 class="m-0 text-dark"><i class="nav-icon fas fa-tachometer-alt"></i> @ViewData["Title"]</h1>
+        </div>
+            <!-- /.col -->
+            <div class="col">
+                @*<h2 class="m-0 text-dark">
+
+
+            </h2>*@
+
+                <h5><label id="lblTotalVotes"></label></h5>
+
+            </div>
+            <div class="col">
+
+                <h5><label id="lblTotalVoters"></label></h5>
+
+            </div>
+            
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
 </div>

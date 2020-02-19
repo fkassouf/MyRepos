@@ -18,6 +18,8 @@ namespace InternalRegime.Models
 
         public Int32 Total { get; set; }
 
+        public Int32 TotalVoters { get; set; }
+
         public decimal Perc { get; set; }
 
         public bool Passed { get; set; }
