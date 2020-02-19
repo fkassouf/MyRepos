@@ -1,0 +1,60 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "";
+}
+
+<!-- ##### Hero Area Start ##### -->
+<div class="hero-area" style="padding-top:25px">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="blog-posts-area">
+                        <!-- Single Featured Post -->
+                    <div class="single-blog-post featured-post single-post">
+
+                        <div class="post-thumb">
+                            <img src="" class="img-responsive img-thumbnail" alt="" id="imgPost">
+                        </div>
+
+
+                        <div class="post-data">
+                            <a id="pCategory" href="#" class="post-catagory"></a>
+                            <label class="post-date" id="postDate"></label>
+                            <a href="#" class="post-title">
+                                <h6 id="hTitle"></h6>
+                            </a>
+                            <div class="post-meta">
+                                <p id="pSubject"></p>
+                                <!-- Post Like & Post Comment -->
+                                <div class="d-flex align-items-center post-like--comments">
+                                    <a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>
+                                    <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                       
+                        
+                       
+                        
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- ##### Hero Area End ##### -->
+
+
+
+@section Scripts {
+
+    <script>
+        var encodedId = '@Request.Query["id"]';
+        
+    </script>
+    <script src="~/scripts/subindex.js"></script>
+
+}
