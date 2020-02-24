@@ -1,5 +1,17 @@
 ﻿var id;
 $(function () {
+    $('.demo1').easyTicker({
+        direction: 'up',
+        visible: 3,
+        interval: 2500,
+        controls: {
+            up: '.btnUp',
+            down: '.btnDown',
+            toggle: '.btnToggle'
+        }
+    });
+
+    GetTodayNews();
 
     moment.locale('ar');
 
@@ -27,15 +39,74 @@ function getNewsById(id) {
 
         success: function (data, textStatus, xhr) {
 
-            
+
             $('#pCategory').text(data.categoryNameAR);
-            $('#postDate').text(moment(data.creationDate).startOf('minute').fromNow());
+            $('#postDate').text(moment(data.creationDate).format('LLLL'));
             $('#hTitle').text(data.title);
-            $('#imgPost').prop('src', data.photo);
+            if (data.photo !== null)
+                $('#imgPost').prop('src', data.photo);
+            else
+                $('#imgPost').prop('src', '/img/empty_news.png');
             $('#pSubject').text(data.subject);
         },
         error: function (xhr, textStatus, errorThrown) {
             $.alert('Error');
+        }
+    });
+}
+
+
+
+
+function GetTodayNews() {
+    let html = "";
+    html += '<ul>';
+
+    let displayBreakingNews = false;
+    $.ajax({
+        url: '/home/GetTodayNews',
+        type: 'Get',
+        processData: false,
+        contentType: false,
+        success: function (data, textStatus, xhr) {
+
+            let arr = data;
+            allNewsArr = data;
+
+            for (let i = 0; i < arr.length; i++) {
+                let news = arr[i];
+
+                /**Breaking news**/
+
+                if (news.isBreaking) {
+                    displayBreakingNews = true;
+
+
+
+                    html += '<li><a href="#">' + news.title + '</a></li>';
+
+
+                }
+
+                if (displayBreakingNews) {
+                    $('#divTickerArea').css('display', 'block');
+                    html += '</ul>';
+                    $("#breakingNewsTicker").html(html);
+
+                    // :: 2.0 Newsticker Active Code
+                    $.simpleTicker($("#breakingNewsTicker"), {
+                        speed: 1000,
+                        delay: 3000,
+                        easing: 'swing',
+                        effectType: 'roll'
+                    });
+                }
+            }
+
+
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            alert('Error occuried: Contact your system administrator');
         }
     });
 }

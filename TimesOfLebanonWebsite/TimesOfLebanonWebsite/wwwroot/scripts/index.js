@@ -59,7 +59,11 @@ function GetTodayNews() {
                 let news = arr[i];
                 
                 if (i == 0) {
-                    $('#imgFirstPost').prop('src', news.photo);
+                    if (news.photo !== null)
+                        $('#imgFirstPost').prop('src', news.photo);
+                    else
+                        $('#imgFirstPost').prop('src', '/img/empty_news.png');
+
                     $('#imgFirstPost').parent().prop('href', '/subindex?id=' + btoa(news.id));
                     $('#imgFirstPost').parent().prop('target', '_blank');
                     
@@ -70,7 +74,7 @@ function GetTodayNews() {
                     $('#lnkFirstPostTitle').parent().prop('target', '_blank');
                     let subject = news.subject;
                     if (subject.length > 500) {
-                        $('#divFirstPostSubject').html(subject.substring(0, 499) + "...<br><a class='post-catagory' style='cursor:pointer' href='/subindex?id='" + btoa(news.id) + ">أقرأ المزيد</a>");
+                        $('#divFirstPostSubject').html(subject.substring(0, 499) + "...<br><a class='btn btn-success' style='cursor:pointer' href='/subindex?id='" + btoa(news.id) + ">أقرأ المزيد</a>");
                     }
                     else {
                         $('#divFirstPostSubject').text(subject);
@@ -78,7 +82,11 @@ function GetTodayNews() {
                 }
 
                 else if (i == 1) {
-                    $('#imgSecondPost').prop('src', news.photo);
+                    if (news.photo !== null)
+                        $('#imgSecondPost').prop('src', news.photo);
+                    else
+                        $('#imgSecondtPost').prop('src', '/img/empty_news.png');
+
                     $('#imgSecondPost').parent().prop('href', '/subindex?id=' + btoa(news.id));
                     $('#imgSecondPost').parent().prop('target', '_blank');
 
@@ -89,7 +97,7 @@ function GetTodayNews() {
                     $('#lnkSecondPostTitle').parent().prop('target', '_blank');
                     let subject = news.subject;
                     if (subject.length > 500) {
-                        $('#divSecondPostSubject').html(subject.substring(0, 499) + "...<br><a class='post-catagory' style='cursor:pointer' href='/subindex?id='" + btoa(news.id) + ">أقرأ المزيد</a>");
+                        $('#divSecondPostSubject').html(subject.substring(0, 499) + "...<br><a class='btn btn-success' style='cursor:pointer' href='/subindex?id='" + btoa(news.id) + ">أقرأ المزيد</a>");
                     }
                     else {
                         $('#divSecondPostSubject').text(subject);
@@ -98,7 +106,10 @@ function GetTodayNews() {
 
 
                 else if (i == 2) {
-                    $('#imgThirdPost').prop('src', news.photo);
+                    if (news.photo !== null)
+                        $('#imgThirdPost').prop('src', news.photo);
+                    else
+                        $('#imgThirdPost').prop('src', '/img/empty_news.png');
                     $('#imgThirdPost').parent().prop('href', '/subindex?id=' + btoa(news.id));
                     $('#imgThirdPost').parent().prop('target', '_blank');
                     $('#lnkThirdPostCategory').text(news.categoryNameAR);
@@ -108,7 +119,7 @@ function GetTodayNews() {
                     $('#lnkThirdPostTitle').parent().prop('target', '_blank');
                     let subject = news.subject;
                     if (subject.length > 500) {
-                        $('#divThirdPostSubject').html(subject.substring(0, 499) + "...<br><a class='post-catagory' style='cursor:pointer' href='/subindex?id='" + btoa(news.id) + ">أقرأ المزيد</a>");
+                        $('#divThirdPostSubject').html(subject.substring(0, 499) + "...<br><a class='btn btn-success' style='cursor:pointer' href='/subindex?id='" + btoa(news.id) + ">أقرأ المزيد</a>");
                     }
                     else {
                         $('#divThirdPostSubject').text(subject);
