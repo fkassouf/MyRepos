@@ -77,7 +77,7 @@ function GetTodayNews() {
                         $('#divFirstPostSubject').html(subject.substring(0, 499) + "...<br><a class='btn btn-success' style='cursor:pointer' href='/subindex?id='" + btoa(news.id) + ">أقرأ المزيد</a>");
                     }
                     else {
-                        $('#divFirstPostSubject').text(subject);
+                        $('#divFirstPostSubject').html(subject);
                     }
                 }
 

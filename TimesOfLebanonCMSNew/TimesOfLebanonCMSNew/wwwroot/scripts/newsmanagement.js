@@ -2,7 +2,7 @@
 var hasVideo = false;
 
 $(document).ready(function () {
-    console.log(mode);
+    
     getCategories();
     
 
