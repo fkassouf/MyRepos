@@ -1,12 +1,12 @@
 ﻿@font-face {
-    font-family: "Amiri-Bold";
-    src: url("amiri/Amiri-Bold.ttf");
+    font-family: "Janna LT Bold";
+    src: url("Janna LT Bold/Janna LT Bold.ttf");
 }
 
 #tblNews {
-    font-family: Amiri-Bold;
+    font-family: Janna LT Bold;
 }
 
 #frmNewsManagement {
-    font-family: Amiri-Bold;
+    font-family: Janna LT Bold;
 }
