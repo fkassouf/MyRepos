@@ -2,7 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\TimesOfLebanonCMSNew",
-    "\\TimesOfLebanonCMSNew\\TimesOfLebanonCMSNew"
+    "\\TimesOfLebanonCMSNew\\TimesOfLebanonCMSNew",
+    "\\TimesOfLebanonCMSNew\\TimesOfLebanonCMSNew\\Views",
+    "\\TimesOfLebanonCMSNew\\TimesOfLebanonCMSNew\\Views\\Home"
   ],
   "SelectedNode": "\\TimesOfLebanonCMSNew\\TimesOfLebanonCMSNew\\Cipher.cs",
   "PreviewInSolutionExplorer": false
