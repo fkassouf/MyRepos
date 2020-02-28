@@ -73,19 +73,20 @@ function GetTodayNews() {
                     $('#lnkFirstPostTitle').parent().prop('href', '/subindex?id=' + btoa(news.id));
                     $('#lnkFirstPostTitle').parent().prop('target', '_blank');
                     let subject = news.subject;
-                    if (subject.length > 300) {
-                        $('#divFirstPostSubject').html(subject.substring(0, 299) + " . . . <a target='_blank' class='btn btn-success' style='cursor:pointer' href='/subindex?id=" + btoa(news.id) + "'>أقرأ المزيد</a>");
+                    if (subject.length > 500) {
+                        $('#divFirstPostSubject').html(subject.substring(0, 499) + " . . . <a target='_blank' class='btn btn-success' style='cursor:pointer' href='/subindex?id=" + btoa(news.id) + "'>أقرأ المزيد</a>");
                     }
                     else {
-                        $('#divFirstPostSubject').text(subject);
+                        $('#divFirstPostSubject').html(subject);
                     }
                 }
 
                 else if (i == 1) {
+                    
                     if (news.photo !== null)
                         $('#imgSecondPost').prop('src', news.photo);
                     else
-                        $('#imgSecondtPost').prop('src', '/img/empty_news.png');
+                        $('#imgSecondPost').prop('src', '/img/empty_news.png');
 
                     $('#imgSecondPost').parent().prop('href', '/subindex?id=' + btoa(news.id));
                     $('#imgSecondPost').parent().prop('target', '_blank');
@@ -100,7 +101,7 @@ function GetTodayNews() {
                         $('#divSecondPostSubject').html(subject.substring(0, 299) + "...<br><a target='_blank' class='btn btn-success' style='cursor:pointer' href='/subindex?id=" + btoa(news.id) + "'>أقرأ المزيد</a>");
                     }
                     else {
-                        $('#divSecondPostSubject').text(subject);
+                        $('#divSecondPostSubject').html(subject);
                     }
                 }
 
@@ -122,7 +123,7 @@ function GetTodayNews() {
                         $('#divThirdPostSubject').html(subject.substring(0, 299) + "...<br><a target='_blank' class='btn btn-success' style='cursor:pointer' href='/subindex?id=" + btoa(news.id) + "'>أقرأ المزيد</a>");
                     }
                     else {
-                        $('#divThirdPostSubject').text(subject);
+                        $('#divThirdPostSubject').html(subject);
                     }
                 }
 
@@ -231,6 +232,6 @@ function loadInternationalNews(arr) {
             html += '</div>';
         }
     });
-    console.log(html);
+   
     $('#divInternationalNews').append(html);
 }

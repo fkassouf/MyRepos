@@ -6,6 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\trumbowyg\css\**" />
+    <Compile Remove="wwwroot\trumbowyg\js\**" />
+    <Content Remove="wwwroot\trumbowyg\css\**" />
+    <Content Remove="wwwroot\trumbowyg\js\**" />
+    <EmbeddedResource Remove="wwwroot\trumbowyg\css\**" />
+    <EmbeddedResource Remove="wwwroot\trumbowyg\js\**" />
+    <None Remove="wwwroot\trumbowyg\css\**" />
+    <None Remove="wwwroot\trumbowyg\js\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />

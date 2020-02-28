@@ -38,7 +38,7 @@ function getNewsById(id) {
                 $('#imgPost').prop('src', data.photo);
             else
                 $('#imgPost').prop('src', '/img/empty_news.png');
-            $('#pSubject').text(data.subject);
+            $('#pSubject').html(data.subject);
         },
         error: function (xhr, textStatus, errorThrown) {
             $.alert('Error');

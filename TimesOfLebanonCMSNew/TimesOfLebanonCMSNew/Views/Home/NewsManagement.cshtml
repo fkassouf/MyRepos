@@ -3,10 +3,20 @@
     ViewData["Title"] = "News Management";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<link href="~/trumbowyg/ui/trumbowyg.min.css" rel="stylesheet" />
 <link href="~/dist/css/main.css" rel="stylesheet" />
 <style>
     label, input, h4 {
-        float:right;
+        float: right;
+    }
+
+    .note-editor.note-frame .note-editing-area .note-editable {
+        text-align: right;
+    }
+
+    .note-toolbar card-header {
+        text-align: right;
     }
 </style>
 <div class="content-header">
@@ -65,7 +75,8 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>نص الخبر</label>
-                                <textarea class="form-control" rows="10" id="txtSubject" name="txtSubject"></textarea>
+                                <textarea class="form-control" rows="10" id="txtSubject" name="txtSubject" wrap="hard"></textarea>
+
                             </div>
                         </div>
 
@@ -139,11 +150,11 @@
 @section Scripts {
 
     <script>
-       
+
         var mode = '';
         var id = 0;
         mode = '@Context.Request.Query["mode"]';
-        
+
         if (mode == 'edit') {
             id = @Context.Request.Query["id"];
         }
@@ -151,7 +162,8 @@
     </script>
 
     <script src="~/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
-    
+
+    <script src="~/trumbowyg/trumbowyg.min.js"></script>
     <script src="~/scripts/newsManagement.js"></script>
 
 }

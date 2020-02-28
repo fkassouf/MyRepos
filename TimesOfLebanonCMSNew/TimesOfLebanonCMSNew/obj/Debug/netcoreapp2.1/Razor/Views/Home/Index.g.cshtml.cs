@@ -71,7 +71,7 @@ using TimesOfLebanonCMSNew.Models;
             WriteLiteral("</h1>\r\n            </div><!-- /.col -->\r\n            <div class=\"col-sm-6\">\r\n                <ol class=\"breadcrumb float-sm-right\">\r\n                    <li class=\"breadcrumb-item\">");
             EndContext();
             BeginContext(507, 31, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d9b498a1293d46b284cc28a92bef4a97", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "79afb024bc9f4f97be1c3b2c4bf57812", async() => {
                 BeginContext(530, 4, true);
                 WriteLiteral("Home");
                 EndContext();

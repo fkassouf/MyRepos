@@ -2,7 +2,9 @@
 var hasVideo = false;
 
 $(document).ready(function () {
-    
+    $('#txtSubject').trumbowyg({
+        lang: 'ar'
+    });
     getCategories();
     
 
