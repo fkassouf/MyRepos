@@ -71,11 +71,15 @@ function getNews(id) {
         contentType: false,
         data: nameFormDataHere,
         success: function (data, textStatus, xhr) {
-          
+            
             $("#txtTitle").val(data.title);
             $("#ddlCategory").val(data.categoryId);
             $("#ddlStatus").val(data.statusId);
+            $('#txtSubject').trumbowyg('destroy');
             $("#txtSubject").val(data.subject);
+            $('#txtSubject').trumbowyg({
+                lang: 'ar'
+            });
             $("#chkBreaking").prop('checked', data.isBreaking);
             if (data.photo != null) {
                 hasPhoto = true;
