@@ -48,7 +48,7 @@ function RenderMenu() {
             $.each(arr, function (key, value) {
                 //alert(key + ": " + value);
                 
-                ul.append('<li><a href="/">' + value.nameAR + '</a></li>');
+                ul.append('<li><a href="#' + value.name + '">' + value.nameAR + '</a></li>');
 
                
                 htmlFooter += '<div class="col-12 col-sm-6 col-lg-1">';

@@ -80,7 +80,7 @@ using TimesOfLebanonCMSNew.Models;
             WriteLiteral("</h1>\r\n            </div><!-- /.col -->\r\n            <div class=\"col-sm-6\">\r\n                <ol class=\"breadcrumb float-sm-right\">\r\n                    <li class=\"breadcrumb-item\">");
             EndContext();
             BeginContext(505, 31, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2dca846c8b7e4877aa781de9737e7872", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "392e77b794d14e8e855b49e90499ff55", async() => {
                 BeginContext(528, 4, true);
                 WriteLiteral("Home");
                 EndContext();
@@ -170,7 +170,7 @@ using TimesOfLebanonCMSNew.Models;
                 ");
             EndContext();
             BeginContext(2563, 1815, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3bd88dc2a6254e26a95da62966baccbc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d7394b7a4da44b46985d6cb9be9c527c", async() => {
                 BeginContext(2582, 1789, true);
                 WriteLiteral(@"
                     <div class=""modal-body"">
@@ -243,7 +243,7 @@ using TimesOfLebanonCMSNew.Models;
                 ");
             EndContext();
             BeginContext(5068, 999, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "666dcf2d1ee047989bb48607e032e02b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "44200ddb8dde4b50880d209c97822d0a", async() => {
                 BeginContext(5098, 962, true);
                 WriteLiteral(@"
                     <div class=""modal-body"">
@@ -298,7 +298,7 @@ using TimesOfLebanonCMSNew.Models;
                 WriteLiteral("\';\r\n    </script>\r\n    ");
                 EndContext();
                 BeginContext(6243, 72, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30916d3afab441b2bbb371b02bda210a", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "952b82e5fcf743cc8dffefdd61e56791", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -316,7 +316,7 @@ using TimesOfLebanonCMSNew.Models;
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(6321, 42, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "263303097a314d9ca79029d2573d9177", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf0c7bbcb6bf40ef8e2909e76106fe65", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
